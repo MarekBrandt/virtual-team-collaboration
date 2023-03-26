@@ -1,5 +1,5 @@
 **/.vs
-**/Debug
+**/Debug/*
 **/x64
 
 # Prerequisites
@@ -31,7 +31,7 @@
 *.lib
 
 # Executables
-# *.exe
+*.exe
 *.out
 *.app
 
