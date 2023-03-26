@@ -1,0 +1,16 @@
+﻿  dsfdsfsd.cpp
+  net.cpp
+C:\Users\marek\Downloads\184580_184590\Nowy folder\dsfdsfsd\net.cpp(19,10): fatal  error C1083: Cannot open include file: 'sys/socket.h': No such file or directory
+  objects.cpp
+  quaternion.cpp
+C:\Users\marek\Downloads\184580_184590\Nowy folder\dsfdsfsd\quaternion.cpp(63,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\marek\Downloads\184580_184590\Nowy folder\dsfdsfsd\quaternion.cpp(95,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\marek\Downloads\184580_184590\Nowy folder\dsfdsfsd\quaternion.cpp(102,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  vector3D.cpp
+C:\Users\marek\Downloads\184580_184590\Nowy folder\dsfdsfsd\vector3D.cpp(7,29): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\marek\Downloads\184580_184590\Nowy folder\dsfdsfsd\vector3D.cpp(100,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\marek\Downloads\184580_184590\Nowy folder\dsfdsfsd\vector3D.cpp(100,35): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\marek\Downloads\184580_184590\Nowy folder\dsfdsfsd\vector3D.cpp(120,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\marek\Downloads\184580_184590\Nowy folder\dsfdsfsd\vector3D.cpp(133,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\marek\Downloads\184580_184590\Nowy folder\dsfdsfsd\vector3D.cpp(163,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
