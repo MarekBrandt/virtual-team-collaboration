@@ -36,6 +36,7 @@ Client* currentClient;
 Client* findClient(unsigned long* address, int id) {
     for (Client* client : clients) {
         if (client->id == id) {
+            client->address = *address;
             return client;
         }
     }
