@@ -76,23 +76,19 @@ DWORD WINAPI ReceiveThreadFun(void *ptr)
 
 		if (frame.iID != my_vehicle->iID)                     // if the frame isn't my own frame
 		{
-			if (frame.type != FrameType::UNREGISTER)
+			fprintf(f, "received state of object with iID = %d\n", frame.iID);
+
+			fprintf(f, "%ld\n", address);
+			if (movable_objects[frame.iID] == NULL)           // object hasn't registered up till now 
+				// == nullptr (C++ 11) it is not available in older versions than VC 2013
 			{
-				fprintf(f, "received state of object with iID = %d\n", frame.iID);
+				MovableObject* ob = new MovableObject();
+				ob->iID = frame.iID;
+				movable_objects[frame.iID] = ob;              // registration of new object 
 
-				fprintf(f, "%ld\n", address);
-				if (movable_objects[frame.iID] == NULL)           // object hasn't registered up till now 
-					// == nullptr (C++ 11) it is not available in older versions than VC 2013
-				{
-					MovableObject* ob = new MovableObject();
-					ob->iID = frame.iID;
-					movable_objects[frame.iID] = ob;              // registration of new object 
-
-					//fprintf(f, "alien object ID = %d was registred\n", ob->iID);
-				}
-				movable_objects[frame.iID]->ChangeState(state);   // updating the state of the object
+				//fprintf(f, "alien object ID = %d was registred\n", ob->iID);
 			}
-			else if (movable_objects[frame.iID] != NULL) movable_objects[frame.iID] = NULL;
+			movable_objects[frame.iID]->ChangeState(state);   // updating the state of the object
 
 		}
 		else if (frame.type == FrameType::CONNECT){
