@@ -78,6 +78,7 @@ int main()
         printf("id: %d\n", currentFrame.iID);
         currentClient = findClient(&ip_sender);
         if (currentFrame.type == FrameType::UNREGISTER) {
+            currentClient->lastFrame = currentFrame;
             //removeFromClients(&ip_sender);
         }
         else if(currentFrame.type == FrameType::CONNECT){

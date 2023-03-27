@@ -173,6 +173,7 @@ void EndOfInteraction()
 {
 	Frame frame;  
 	frame.type = UNREGISTER;
+	frame.state = my_vehicle->State();
 	uni_send->send((char*)&frame, SERV_IP, sizeof(Frame));
 	fprintf(f, "End of interaction\n");
 	fclose(f);
