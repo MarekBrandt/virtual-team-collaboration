@@ -92,7 +92,7 @@ DWORD WINAPI ReceiveThreadFun(void *ptr)
 
 		}
 		else if (frame.type == FrameType::CONNECT){
-			movable_objects[frame.iID]->ChangeState(state);
+			my_vehicle->ChangeState(state);
 		}
 	}  // while(1)
 	return 1;
@@ -174,6 +174,7 @@ void EndOfInteraction()
 	Frame frame;  
 	frame.type = UNREGISTER;
 	frame.state = my_vehicle->State();
+	frame.iID = my_vehicle->iID;
 	uni_send->send((char*)&frame, SERV_IP, sizeof(Frame));
 	fprintf(f, "End of interaction\n");
 	fclose(f);
