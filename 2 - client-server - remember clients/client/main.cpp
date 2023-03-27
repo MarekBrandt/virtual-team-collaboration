@@ -176,6 +176,7 @@ void EndOfInteraction()
 	frame.state = my_vehicle->State();
 	frame.iID = my_vehicle->iID;
 	uni_send->send((char*)&frame, SERV_IP, sizeof(Frame));
+	movable_objects[frame.iID] = NULL;
 	fprintf(f, "End of interaction\n");
 	fclose(f);
 }
