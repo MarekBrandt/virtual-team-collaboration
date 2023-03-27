@@ -24,6 +24,7 @@
     <ProjectGuid>{60624a4c-c0d2-4f5a-a96e-f9e8f6940417}</ProjectGuid>
     <RootNamespace>dsfdsfsd</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>dsfdsfsd</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -144,7 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="dsfdsfsd.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="net.cpp" />
     <ClCompile Include="objects.cpp" />
     <ClCompile Include="quaternion.cpp" />

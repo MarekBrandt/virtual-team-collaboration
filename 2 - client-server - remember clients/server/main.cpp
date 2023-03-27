@@ -32,8 +32,6 @@ std::vector<Client*> clients{};
 Frame currentFrame;
 Client* currentClient;
 
-unicast_net uni_send;
-
 Client* findClient(unsigned long* address) {
     for (Client* client : clients) {
         if (client->address == *address) {
@@ -45,11 +43,11 @@ Client* findClient(unsigned long* address) {
     return newClient;
 }
 
-void resolveConnection(unsigned long* address) {
+boolean resolveConnection(unsigned long* address) {
     Frame lastFrame = currentClient->lastFrame;
-    if (lastFrame.type == FrameType::EMPTY) return;
-    if (lastFrame.iID != currentFrame.iID) return;
-    uni_send.send((char*)&currentFrame, currentClient->address, sizeof(Frame));
+    if (lastFrame.type == FrameType::EMPTY) return false;
+    if (lastFrame.iID != currentFrame.iID) return false;
+    return true;
 }
 
 void removeFromClients(unsigned long* address) {
@@ -66,7 +64,7 @@ int main()
 {
     bool isRunning = true;
     unicast_net uni_reciv = unicast_net::unicast_net(1001);
-    uni_send = unicast_net::unicast_net(1002);
+    unicast_net uni_send = unicast_net::unicast_net(1002);
     while (isRunning) {
         printf("\n\n");
 
@@ -83,7 +81,10 @@ int main()
             //removeFromClients(&ip_sender);
         }
         else if(currentFrame.type == FrameType::CONNECT){
-            resolveConnection(&ip_sender);
+            if (resolveConnection(&ip_sender)) { 
+                currentFrame.state = currentClient->lastFrame.state;
+                uni_send.send((char*)&currentFrame, currentClient->address, sizeof(Frame)); 
+            }
         }
         currentFrame.type = FrameType::NORMAL;
         for (auto client : clients) {
