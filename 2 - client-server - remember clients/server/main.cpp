@@ -86,8 +86,11 @@ int main()
                 currentFrame.state = currentClient->lastFrame.state;
                 uni_send.send((char*)&currentFrame, currentClient->address, sizeof(Frame)); 
             }
+            currentFrame.type = FrameType::NORMAL;
         }
-        currentFrame.type = FrameType::NORMAL;
+        else {
+            currentFrame.type = FrameType::NORMAL;
+        }
         for (auto client : clients) {
             printf("client: %ld\n", client->address);
             uni_send.send((char*)&currentFrame, client->address, sizeof(Frame));
